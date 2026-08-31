@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontel - Sistema de Gestión</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <header>
+            <img src="/logo_frontel.png" alt="Logo Frontel" class="logo">
+            <h1 id="titulo-sistema">Acceso al Sistema</h1>
+        </header>
+
+        <section id="seccion-login" class="tarjeta">
+            <h2>Iniciar Sesión</h2>
+            <div class="campo">
+                <label>RUT Usuario:</label>
+                <input type="text" id="login_rut" placeholder="12345678-9">
+            </div>
+            <div class="campo">
+                <label>Contraseña:</label>
+                <input type="password" id="login_pass" placeholder="******">
+            </div>
+            <button onclick="autenticar()">INGRESAR</button>
+        </section>
+
+<section id="seccion-atencion" class="tarjeta" style="display: none;">
+    <h2 id="saludo-usuario">Atención de Clientes</h2>
+    
+    <div id="paso-identificacion">
+        <p style="font-size: 0.9em; color: #666;">Ingrese al menos uno de los dos datos:</p>
+        <div class="campo">
+            <label>RUT Cliente:</label>
+            <input type="text" id="rut_cliente" placeholder="Ej: 12345678-9">
+        </div>
+        <div class="campo">
+            <label>N° de Cliente:</label>
+            <input type="number" id="num_cliente" placeholder="Ej: 10293840">
+        </div>
+        <button id="btn-iniciar" onclick="iniciarAtencion()">INICIAR ATENCIÓN</button>
+        
+        <button onclick="cerrarSesion()" style="margin-top: 30px; background-color: #666; font-size: 14px; padding: 10px;">CERRAR SESIÓN</button>
+    </div>
+
+    <div id="paso-cierre" style="display:none;">
+        <div id="cronometro">00:00:00</div>
+        
+        <div class="campo">
+            <label>Motivo de la Consulta:</label>
+            <select id="motivo_final">
+                <option value="pago">Pago de Cuenta</option>
+                <option value="convenio">Convenio</option>
+                <option value="reclamo">Reclamo</option>
+                <option value="comercial">Nuevo Servicio</option>
+                <option value="comercial">Cambio Medidor</option>
+                <option value="comercial">Modificación Datos</option>
+                <option value="tecnico">Atención Técnica</option>
+                <option value="comercial">Certificado</option>
+                <option value="comercial">Nota de Crédito</option>
+                <option value="comercial">Electrodependiente</option>
+                <option value="comercial">Informa Lectura</option>
+                <option value="comercial">Limpieza Mirilla</option>
+                <option value="comercial">Retiro de Servicio</option>
+                <option value="comercial">Roce</option>
+                <option value="comercial">Desconexión y Conexión</option>
+                <option value="otros">Otros</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Resolución:</label>
+            <select id="estado_final">
+                <option value="concluido">Concluido</option>
+                <option value="derivado">Derivado</option>
+            </select>
+        </div>
+
+        <button id="btn-finalizar" style="background-color: --azulboton;" onclick="finalizarAtencion()">FINALIZAR Y REGISTRAR</button>
+    </div>
+
+</section>
+
+<section id="seccion-admin" class="tarjeta" style="display: none;">
+    <h2>Panel de Administración</h2>
+    <p>Gestión de Cuentas - Frontel</p>
+
+    <div id="formulario-ejecutivo" style="background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+        <h3 id="titulo-form-admin">Agregar Nuevo Ejecutivo</h3>
+        
+        <input type="hidden" id="edit_index" value="-1"> <div class="campo">
+            <label>RUT Ejecutivo:</label>
+            <input type="text" id="admin_rut_ejecutivo" placeholder="12.345.678-9">
+        </div>
+        <div class="campo">
+            <label>Nombre Completo:</label>
+            <input type="text" id="admin_nombre_ejecutivo" placeholder="Ej: Katherine Gonzalez">
+        </div>
+        <div class="campo">
+            <label>Contraseña:</label>
+            <input type="password" id="admin_pass_ejecutivo" placeholder="****">
+        </div>
+        <div class="campo">
+            <label>Rol de Usuario:</label>
+            <select id="admin_rol_ejecutivo">
+                <option value="ejecutivo">Ejecutivo de Atención</option>
+                <option value="admin">Administrador de Sucursal</option>
+            </select>
+        </div>
+        
+        <button id="btn-guardar-admin" onclick="guardarEjecutivo()">GUARDAR USUARIO</button>
+        <button id="btn-cancelar-admin" onclick="limpiarFormAdmin()" style="background: #666; margin-top: 5px; display: none;">CANCELAR EDICIÓN</button>
+    </div>
+
+    <hr>
+    <h3>Ejecutivos Registrados</h3>
+    <div id="lista-ejecutivos" style="font-size: 0.9em;">
+        </div>
+
+    <hr>
+    <div style="display: flex; gap: 10px;">
+        <button onclick="volverAAtencionDesdeAdmin()" style="background-color: #0055a4;">IR A MÓDULO ATENCIÓN</button>
+        <button onclick="cerrarSesion()" style="background-color: --azulboton;">CERRAR SESIÓN SEGURA</button>
+    </div>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>

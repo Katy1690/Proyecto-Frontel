@@ -1,0 +1,85 @@
+/* Colores de Frontel */
+:root {
+    --azul: #0055a4;
+    --azulboton: #2121f3;
+    --celeste-fondo: #cee3e9;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--celeste-fondo);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 50px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 300px;
+}
+
+.tarjeta {
+    background: rgb(211, 234, 237);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: var(--azul);
+    border-bottom: 2px solid var(--azul);
+    padding-bottom: 10px;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: var(--azulboton);
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--azulboton);
+}
+
+#cronometro {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--azul);
+    font-weight: bold;
+}
