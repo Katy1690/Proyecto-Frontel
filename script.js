@@ -32,9 +32,8 @@ async function autenticar() {
       
       // Oculta pantalla de login y muestra el panel correspondiente
       document.getElementById('seccion-login').style.display = 'none';
-      if (res.ok) {
-        document.getElementById('seccion-login').style.display = 'none';
-
+    
+      // Muestra el panel según el rol del usuario
       if (data.rol === 'admin') {
         document.getElementById('seccion-admin').style.display = 'block';
         cargarEjecutivos();
@@ -43,7 +42,7 @@ async function autenticar() {
       }
     } else {
       alert('Error de autenticación: ' + (data.mensaje || 'Credenciales incorrectas'));
-    }}
+    }
 
   } catch (error) {
     console.error('Error al iniciar sesión:', error);
