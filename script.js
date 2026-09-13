@@ -16,7 +16,7 @@ async function autenticar() {
   }
 
   try {
-    const res = await fetch('/api/login', {
+    const res = await fetch('https://proyecto-frontel.onrender.com/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -93,7 +93,7 @@ async function finalizarAtencion() {
   };
 
   try {
-    const res = await fetch('/api/atenciones', {
+    const res = await fetch('https://proyecto-frontel.onrender.com/api/atenciones', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(datosAtencion)
@@ -145,7 +145,7 @@ async function guardarEjecutivo() {
   }
 
   try {
-    const res = await fetch('/api/usuarios', {
+    const res = await fetch('https://proyecto-frontel.onrender.com/api/usuarios', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(datosEjecutivo)
@@ -179,7 +179,7 @@ async function cargarEjecutivos() {
   if (!contenedor) return;
 
   try {
-    const res = await fetch('/api/usuarios');
+    const res = await fetch('https://proyecto-frontel.onrender.com/api/usuarios');
     const ejecutivos = await res.json();
 
     // Limpia el contenido actual antes de renderizar
@@ -219,7 +219,7 @@ async function eliminarEjecutivo(id) {
   if (!confirm('¿Estás seguro de que deseas eliminar este ejecutivo?')) return;
 
   try {
-    const res = await fetch(`/api/usuarios/${id}`, { method: 'DELETE' });
+    const res = await fetch(`https://proyecto-frontel.onrender.com/api/usuarios/${id}`, { method: 'DELETE' });
     if (res.ok) {
       alert('Ejecutivo eliminado correctamente');
       cargarEjecutivos();
@@ -243,7 +243,7 @@ async function editarEjecutivo(id, nombreActual, rutActual, rolActual) {
   if (nuevoRol === null) return;
 
   try {
-    const res = await fetch(`/api/usuarios/${id}`, {
+    const res = await fetch(`https://proyecto-frontel.onrender.com/api/usuarios/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -303,7 +303,7 @@ document.getElementById('form-atencion')?.addEventListener('submit', async (e) =
   };
 
   try {
-    const res = await fetch('/api/atenciones', {
+    const res = await fetch('https://proyecto-frontel.onrender.com/api/atenciones', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(datosAtencion)

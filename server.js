@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const Atencion = require('./Atencion');
 const Usuario = require('./Usuario');
+const cors = require('cors');
+app.use(cors());
 
 const app = express();
 const PORT = process.env.PORT || 3000;
