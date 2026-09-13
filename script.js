@@ -7,8 +7,8 @@ const usuariosValidos = [
 ];
 
 async function autenticar() {
-  const rutInput = document.getElementById('login_rut').value;
-  const passInput = document.getElementById('login_pass').value;
+  const rutInput = document.getElementById('login_rut').value.trim();
+  const passInput = document.getElementById('login_pass').value.trim();
 
   if (!rutInput || !passInput) {
     alert('Por favor ingresa tu RUT y Contraseña');
@@ -36,7 +36,7 @@ async function autenticar() {
       // Muestra el panel según el rol del usuario
       if (data.rol === 'admin') {
         document.getElementById('seccion-admin').style.display = 'block';
-        cargarEjecutivos();
+        if (typeof cargarEjecutivos === 'function') cargarEjecutivos();
       } else {
         document.getElementById('seccion-atencion').style.display = 'block';
       }
