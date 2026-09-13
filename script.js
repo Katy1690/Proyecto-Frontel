@@ -6,7 +6,9 @@ const usuariosValidos = [
     { rut: "16668813-0", pass: "Administrador", nombre: "Angela Mardones", rol: "admin" }
 ];
 
-async function autenticar() {
+async function autenticar(event) {
+  if (event) event.preventDefault();
+  
   const rutInput = document.getElementById('login_rut').value.trim();
   const passInput = document.getElementById('login_pass').value.trim();
 
@@ -16,7 +18,7 @@ async function autenticar() {
   }
 
   try {
-    const res = await fetch('/api/login', {
+    const res = await fetch('https://proyecto-frontel.onrender.com/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
