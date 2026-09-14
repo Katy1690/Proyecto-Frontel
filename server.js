@@ -4,12 +4,12 @@ const path = require('path');
 const Atencion = require('./Atencion');
 const Usuario = require('./Usuario');
 const cors = require('cors');
-app.use(cors());
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
